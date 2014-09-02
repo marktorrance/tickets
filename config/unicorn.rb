@@ -12,7 +12,10 @@ timeout 180
 listen "127.0.0.1:3000"
 
 # Spawn unicorn master worker for user apps (group: apps)
-user 'mark', 'mark'
+#user 'apps', 'apps'
+
+# Currently manually started like this on server:
+# unicorn_rails -c config/unicorn.rb -E production -D
 
 # Fill path to your app
 working_directory app_path
