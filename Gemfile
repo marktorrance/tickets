@@ -35,10 +35,11 @@ gem 'spring',        group: :development
 
 gem 'unicorn'
 group :development do
-  gem 'capistrano'
+  gem 'capistrano', '~> 3.1'
+  gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
-  gem 'capistrano-unicorn', require: false
+  gem 'capistrano3-unicorn'
 end
 
 # Use debugger
