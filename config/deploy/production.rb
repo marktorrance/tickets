@@ -15,7 +15,11 @@ role :db,  %w{mark@w.vinq.com}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
+<<<<<<< HEAD
 # server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
+=======
+server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
+>>>>>>> 63a26ee25a433a07207f6156d6d559715b1b3197
 
 
 # Custom SSH Options

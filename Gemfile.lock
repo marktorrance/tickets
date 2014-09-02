@@ -155,7 +155,10 @@ DEPENDENCIES
   addressable
   capistrano
   capistrano-rails
+<<<<<<< HEAD
   capistrano3-unicorn
+=======
+>>>>>>> 63a26ee25a433a07207f6156d6d559715b1b3197
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 2.0)
