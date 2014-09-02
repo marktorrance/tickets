@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  start_date: 2014-09-01 12:08:29
+  end_date: 2014-09-01 12:08:29
+  check_payee: MyString
+  email: MyString
+  speak_to: MyText
+  thanks: MyText
+  store_open: MyString
+  add_processing: MyString
+
+two:
+  name: MyString
+  description: MyText
+  start_date: 2014-09-01 12:08:29
+  end_date: 2014-09-01 12:08:29
+  check_payee: MyString
+  email: MyString
+  speak_to: MyText
+  thanks: MyText
+  store_open: MyString
+  add_processing: MyString

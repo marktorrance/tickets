@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @product.event_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Short name:</strong>
+  <%= @product.short_name %>
+</p>
+
+<p>
+  <strong>Price cents:</strong>
+  <%= @product.price_cents %>
+</p>
+
+<p>
+  <strong>Taxable:</strong>
+  <%= @product.taxable %>
+</p>
+
+<p>
+  <strong>Enable on:</strong>
+  <%= @product.enable_on %>
+</p>
+
+<p>
+  <strong>Disable on:</strong>
+  <%= @product.disable_on %>
+</p>
+
+<p>
+  <strong>Default quantity:</strong>
+  <%= @product.default_quantity %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

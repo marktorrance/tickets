@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @order.event_id %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @order.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @order.last_name %>
+</p>
+
+<p>
+  <strong>Street address:</strong>
+  <%= @order.street_address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @order.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @order.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @order.zip %>
+</p>
+
+<p>
+  <strong>Phone1:</strong>
+  <%= @order.phone1 %>
+</p>
+
+<p>
+  <strong>Phone2:</strong>
+  <%= @order.phone2 %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @order.email %>
+</p>
+
+<p>
+  <strong>Payment auth:</strong>
+  <%= @order.payment_auth %>
+</p>
+
+<p>
+  <strong>Total cents:</strong>
+  <%= @order.total_cents %>
+</p>
+
+<p>
+  <strong>Tax cents:</strong>
+  <%= @order.tax_cents %>
+</p>
+
+<p>
+  <strong>Products:</strong>
+  <%= @order.products %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @order.comments %>
+</p>
+
+<p>
+  <strong>Delivery time requested:</strong>
+  <%= @order.delivery_time_requested %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

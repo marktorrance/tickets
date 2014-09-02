@@ -1,0 +1,89 @@
+<%= form_for(@order) do |f| %>
+<div class="payment_info">
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @event %>
+    <%= f.hidden_field(:event_id, :value => @event.id) %>
+  <% else %>
+    <div class="field">
+      <%= f.label :event_id %><br>
+      <%= f.number_field :event_id %>
+    </div>
+  <% end %>
+  <table>
+    <tr>
+      <td><%= f.label :first_name %><br>
+          <%= f.text_field :first_name %></td>
+      <td><%= f.label :last_name %><br>
+          <%= f.text_field :last_name %></td>
+    </tr>
+  </table>
+  <div class="field">
+    <%= f.label :address1 %><br>
+    <%= f.text_field :address1 %>
+  </div>
+  <div class="field">
+    <%= f.label "Address 2 (optional)" %><br>
+    <%= f.text_field :address2 %>
+  </div>
+  <table>
+    <tr>
+      <td><%= f.label :city %><br>
+          <%= f.text_field :city %></td>
+      <td><%= f.label :state %><br>
+          <%= f.text_field :state, :style => "width: 25px" %></td>
+      <td><%= f.label :zip %><br>
+          <%= f.text_field :zip, :style => "width: 100px" %></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td><%= f.label :phone1 %><br>
+          <%= f.text_field :phone1 %></td>
+      <td><%= f.label "Phone 2 (optional)" %><br>
+          <%= f.text_field :phone2 %></td>
+    </tr>
+  </table>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <% if !@event %>
+  <div class="field">
+    <%= f.label :payment_auth %><br>
+    <%= f.text_field :payment_auth %>
+  </div>
+  <% end %>
+  <%= f.hidden_field(:total_cents, :value => "0") %>
+  <%= f.hidden_field(:tax_cents, :value => "0") %>
+  <%= f.hidden_field(:products, :value => "") %>
+  <div class="field">
+    <%= f.label "Special Instructions" %><br>
+    <%= f.text_area :comments %>
+  </div>
+  <% if false %>
+  <div class="field">
+    <%= f.label :delivery_time_requested %><br>
+    <%= f.text_field :delivery_time_requested %>
+  </div>
+  <% end %>
+</div>
+  <img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg" align="right" style="margin-right: 12px">
+  <div class="actions">
+    <%= f.submit :value => "Complete order using PayPal", :id => "submit", :disabled => true %>
+  </div>
+  <div>
+  On PayPal, you will be able to pay with PayPal funds, or use a Credit Card or Debit Card
+  to securely pay for your order.
+  </div>
+<% end %>

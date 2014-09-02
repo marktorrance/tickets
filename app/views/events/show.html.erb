@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Subtitle:</strong>
+  <%= @event.subtitle %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= raw @markdown.render(@event.description) %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @event.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @event.end_date %>
+</p>
+
+<p>
+  <strong>Check payee:</strong>
+  <%= @event.check_payee %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @event.email %>
+</p>
+
+<p>
+  <strong>Speak to:</strong>
+  <%= @event.speak_to %>
+</p>
+
+<p>
+  <strong>Thanks:</strong>
+  <%= @event.thanks %>
+</p>
+
+<p>
+  <strong>Store open:</strong>
+  <%= @event.store_open %>
+</p>
+
+<p>
+  <strong>Add processing:</strong>
+  <%= @event.add_processing %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
