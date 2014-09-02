@@ -1,7 +1,7 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
-require 'capistrano-unicorn'
+require 'capistrano3-unicorn'
 
 set :application, 'tickets'
 set :repo_url, 'https://github.com/marktorrance/tickets.git'

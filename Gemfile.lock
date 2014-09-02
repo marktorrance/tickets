@@ -156,6 +156,7 @@ PLATFORMS
 
 DEPENDENCIES
   addressable
+  bundler
   capistrano (~> 3.1)
   capistrano-bundler (~> 1.1.2)
   capistrano-rails

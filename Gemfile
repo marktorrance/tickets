@@ -34,6 +34,7 @@ gem 'spring',        group: :development
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'unicorn'
+gem 'bundler'
 group :development do
   gem 'capistrano', '~> 3.1'
   gem 'capistrano-bundler', '~> 1.1.2'
