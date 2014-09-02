@@ -2,6 +2,8 @@
 lock '3.2.1'
 
 require 'capistrano3-unicorn'
+require 'capistrano-bundler'
+require 'capistrano-rvm'
 
 set :application, 'tickets'
 set :repo_url, 'https://github.com/marktorrance/tickets.git'

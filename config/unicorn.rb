@@ -12,7 +12,7 @@ timeout 180
 listen "127.0.0.1:3000"
 
 # Spawn unicorn master worker for user apps (group: apps)
-user 'mark', 'wheel'
+user 'mark', 'mark'
 
 # Fill path to your app
 working_directory app_path
@@ -26,6 +26,9 @@ stdout_path "log/unicorn.log"
 
 # Set master PID location
 pid "#{app_path}/tmp/pids/unicorn.pid"
+
+# Unicorn socket
+listen "/tmp/unicorn.tickets.sock"
 
 before_fork do |server, worker|
   ActiveRecord::Base.connection.disconnect!
