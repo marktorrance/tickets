@@ -38,7 +38,7 @@ group :development do
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
-  gem 'capistrano-unicorn', :require => false
+  gem 'capistrano-unicorn', require: false
 end
 
 # Use debugger
