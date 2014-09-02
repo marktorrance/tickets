@@ -37,6 +37,7 @@ gem 'unicorn'
 group :development do
   gem 'capistrano'
   gem 'capistrano-rails'
+  gem 'capistrano-rvm'
   gem 'capistrano3-unicorn'
 end
 
