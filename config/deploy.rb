@@ -1,6 +1,8 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
+require 'capistrano-unicorn'
+
 set :application, 'tickets'
 set :repo_url, 'https://github.com/marktorrance/tickets.git'
 
@@ -35,12 +37,8 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-  task :restart do
-    invoke 'unicorn:restart'
-  end
-end
+after 'deploy:restart', 'unicorn:restart'
+
 
 # namespace :deploy do
 #
