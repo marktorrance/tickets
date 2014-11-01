@@ -14,21 +14,21 @@ class NotificationsController < ApplicationController
       # process payment
       if params[:payment_status] == 'Completed'
         if params[:txn_id] && params[:txn_id].to_i > 0
-          o = Order.find(params[:txn_id])
-          if o
+          begin
+            o = Order.find(params[:txn_id])
             o.payment_auth = params[:payment_date]
             o.save
-          else
-            Rails.logger.error "Could not find/validate order: #{params.to_json}"
+          rescue => e
+            Rails.logger.error "Could not find/validate order: #{params.to_json} #{e.message}"
           end
         else
           # Find order by email
-          o = Order.unconfirmed.find_by_email(params[:payer_email])
-          if o
+          begin
+            o = Order.unconfirmed.find_by_email(params[:payer_email])
             o.payment_auth = params[:payment_date]
             o.save
-          else
-            Rails.logger.error "Could not find/validate order by email: #{params.to_json}"
+          rescue => e
+            Rails.logger.error "Could not find/validate order by email: #{params.to_json} #{e.message}"
           end
         end
       end
