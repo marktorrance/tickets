@@ -4,7 +4,6 @@ class NotificationsController < ApplicationController
   # Instant payment notification from PayPal
   def create
     response = validate_IPN_notification(request.raw_post)
-    response = "VERIFIED"  # Temporarily treat INVALID responses as valid for testing
     case response
     when "VERIFIED"
       # check that paymentStatus=Completed
@@ -21,7 +20,7 @@ class NotificationsController < ApplicationController
           rescue => e
             Rails.logger.error "Could not find/validate order: #{params.to_json} #{e.message}"
           end
-        else
+        elsif params[:payer_email]
           # Find order by email
           begin
             o = Order.unconfirmed.find_by_email(params[:payer_email])
@@ -30,10 +29,13 @@ class NotificationsController < ApplicationController
           rescue => e
             Rails.logger.error "Could not find/validate order by email: #{params.to_json} #{e.message}"
           end
+        else
+          Rails.logger.error params.to_json
         end
       end
     when "INVALID"
       # log for investigation
+      Rails.logger.error "INVALID: #{params.to_json}"
     else
       # error
     end
