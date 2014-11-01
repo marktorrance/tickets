@@ -83,6 +83,11 @@ class OrdersController < ApplicationController
     end
   end
 
+  # Instant payment notification from Amazon
+  def ipn
+    Rails.logger.info params.to_json
+  end
+
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy

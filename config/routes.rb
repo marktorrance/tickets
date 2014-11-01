@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   resources :products
   resources :orders
 
+  post 'ipn' => 'orders#ipn'
+
   # Example resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments
