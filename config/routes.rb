@@ -38,8 +38,7 @@ Rails.application.routes.draw do
   resources :events
   resources :products
   resources :orders
-
-  post 'ipn' => 'orders#notify'
+  resources :notifications
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
