@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   resources :products
   resources :orders
 
-  post 'ipn' => 'orders#ipn'
+  post 'ipn' => 'orders#notify'
 
   # Example resource route with more complex sub-resources:
   #   resources :products do

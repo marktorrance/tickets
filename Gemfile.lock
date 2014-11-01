@@ -83,6 +83,12 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
     orm_adapter (0.5.0)
+    paypal-sdk-core (0.3.1)
+      multi_json (~> 1.0)
+      xml-simple
+    paypal-sdk-rest (0.7.2)
+      paypal-sdk-core (~> 0.3.1)
+      uuidtools (~> 2.1)
     polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -148,8 +154,10 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uuidtools (2.1.5)
     warden (1.2.3)
       rack (>= 1.0)
+    xml-simple (1.1.4)
 
 PLATFORMS
   ruby
@@ -167,6 +175,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mysql2
+  paypal-sdk-rest
   rails (= 4.1.5)
   redcarpet
   sass-rails (~> 4.0.3)
