@@ -13,7 +13,7 @@ class NotificationsController < ApplicationController
       # check that paymentAmount/paymentCurrency are correct
       # process payment
       if params[:payment_status] == 'Completed'
-        if params[:txn_id] && params[:txn_id] > 0
+        if params[:txn_id] && params[:txn_id].to_i > 0
           o = Order.find(params[:txn_id])
           if o
             o.payment_auth = params[:payment_date]
