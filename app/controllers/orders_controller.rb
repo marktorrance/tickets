@@ -43,7 +43,8 @@ class OrdersController < ApplicationController
           city: @order.city,
           state: @order.state,
           zip: @order.zip,
-          email: @order.email
+          email: @order.email,
+          txn_id: @order.id
         }
         products = JSON.parse(@order.products)
         products.each_with_index do |p,i0|
