@@ -1,0 +1,79 @@
+<h1><%= @event.name %></h1>
+<% if @event.subtitle %>
+<h2><%= @event.subtitle %></h2>
+<% end %>
+<%= raw @markdown.render(@event.description) %>
+
+<table class="products">
+<tr>
+  <th>Product</th>
+  <th>Price</th>
+  <th>Quantity</th>
+</tr>
+<% @event.products.enabled.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td class="right"><%= number_to_currency(product.price_cents / 100.0) %></td>
+    <td class="right"><input type=text size=3 class="quantity right" product_name="<%= product.name %>" price_cents="<%= product.price_cents %>" value="<%= product.default_quantity %>"></td>
+  </tr>
+<% end%>
+<tr id="discountRow" style="display:none">
+  <td><b>Discount</b></td>
+  <td class="right" id="discount">$0.00</td>
+</tr>
+<tr>
+  <td><b>Total</b></td>
+  <td class="right" id="total">$0.00</td>
+  <td></td>
+</tr>
+<tr>
+  <td>Special Code (if you have one)</td>
+  <td colspan=2><input type=text size=20 id="code"></td>
+</tr>
+</table>
+
+<%= render "orders/form", { short: true } %>
+
+<script type="text/javascript">
+$(function(){
+  $('.quantity').blur(function(){
+    computeTotal();
+  })
+
+  $('#code').blur(function(){
+    computeTotal();
+  });
+
+  function computeTotal() {
+    var total = 0;
+    var products = [];
+    $('.quantity').each(function(q,ob){
+      var name = $(ob).attr('product_name');
+      var price = parseInt($(ob).attr('price_cents'))
+      var quantity = parseInt($(ob).val());
+
+      // Please only use this code if you attended our Fall 2014 cabaret show
+      if ($('#code').val().toLowerCase() == 'cab2014' && price == 7500) {
+        price = 7000;
+        $('#discount').html("$" + 5 * quantity + '.00');
+        $('#discountRow').show();
+      } else {
+        $('#discountRow').hide();
+      }
+      if (quantity > 0) {
+        total = total + price * quantity;
+        products.push({name: name, price: price, quantity: quantity});
+      }
+    });
+    $('#total').html("$"+total/100.0+".00");
+    $('#order_total_cents').val(total);
+    if (total > 0) {
+      $('#submit').removeAttr('disabled');
+      $('#order_products').val(JSON.stringify(products));
+    } else {
+      $('#submit').attr('disabled',1);
+    }
+  }
+
+})
+</script>

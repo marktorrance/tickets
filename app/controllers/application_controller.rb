@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_action :setup_render_helpers, :only => [:index, :show]
+  before_action :setup_render_helpers, :only => [:index, :show, :purchase]
 
   def setup_render_helpers
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)

@@ -1,63 +1,7 @@
 <% if @event %>
 
-<h1><%= @event.name %></h1>
-<% if @event.subtitle %>
-<h2><%= @event.subtitle %></h2>
-<% end %>
-<%= raw @markdown.render(@event.description) %>
+<%= render 'events/purchase.html' %>
 
-<table class="products">
-<tr>
-  <th>Product</th>
-  <th>Price</th>
-  <th>Quantity</th>
-</tr>
-<% @event.products.enabled.each do |product| %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= number_to_currency(product.price_cents / 100.0) %></td>
-    <td><input type=text size=3 class="quantity" product_name="<%= product.name %>" price_cents="<%= product.price_cents %>" value="<%= product.default_quantity %>"></td>
-  </tr>
-<% end%>
-<tr>
-  <td><b>Total</b></td>
-  <td id="total">$0.00</td>
-  <td></td>
-</tr>
-</table>
-
-<%= render "orders/form", { short: true } %>
-
-<script type="text/javascript">
-$(function(){
-  $('.quantity').blur(function(){
-    computeTotal();
-  })
-
-  function computeTotal() {
-    var total = 0;
-    var products = [];
-    $('.quantity').each(function(q,ob){
-      var name = $(ob).attr('product_name');
-      var price = parseInt($(ob).attr('price_cents'))
-      var quantity = parseInt($(ob).val());
-      if (quantity > 0) {
-        total = total + price * quantity;
-        products.push({name: name, price: price, quantity: quantity});
-      }
-    });
-    $('#total').html("$"+total/100.0);
-    $('#order_total_cents').val(total);
-    if (total > 0) {
-      $('#submit').removeAttr('disabled');
-      $('#order_products').val(JSON.stringify(products));
-    } else {
-      $('#submit').attr('disabled',1);
-    }
-  }
-
-})
-</script>
 <% else %>
 There are no upcoming events planned
 <% end %>

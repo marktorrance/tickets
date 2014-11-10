@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:purchase]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :purchase]
 
   # GET /events
   # GET /events.json
@@ -11,6 +11,12 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+  end
+
+  # GET /1
+  def purchase
+    @order = Order.new
+    render '_purchase.html', :event => @event
   end
 
   # GET /events/new

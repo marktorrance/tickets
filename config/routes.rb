@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   #     resource :seller
   #   end
 
+  get '/:id' => 'events#purchase'
   resources :events
   resources :products
   resources :orders
