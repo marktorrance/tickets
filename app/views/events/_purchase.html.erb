@@ -53,7 +53,8 @@ $(function(){
       var quantity = parseInt($(ob).val());
 
       // Please only use this code if you attended our Fall 2014 cabaret show
-      if ($('#code').val().toLowerCase() == 'cab2014' && price == 7500) {
+      var code = $('#code').val().toLowerCase();
+      if ((code == 'cab2014' || code == 'cabfree') && price == 7500) {
         price = 7000;
         $('#discount').html("$" + 5 * quantity + '.00');
         $('#discountRow').show();

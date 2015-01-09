@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :notifications
 
-  scope "/admin" do
+  namespace :admin do
     resources :users
   end
 
