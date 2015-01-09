@@ -35,11 +35,17 @@ Rails.application.routes.draw do
   #     resource :seller
   #   end
 
-  get '/:id' => 'events#purchase'
   resources :events
   resources :products
   resources :orders
   resources :notifications
+
+  scope "/admin" do
+    resources :users
+  end
+
+  # This must be last since it is so general
+  get '/:id' => 'events#purchase'
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
