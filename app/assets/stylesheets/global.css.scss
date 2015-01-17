@@ -43,6 +43,11 @@ h2 {
   font-style: italic;
 }
 
+h3 {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
 table {
   margin: 0px;
   padding: 0px;
@@ -71,6 +76,8 @@ form {
   }
   input[type='text'] {
     width: 300px;
+    padding: 2px;
+    font-size: 13px;
   }
   input[type='submit'] {
   }
@@ -86,6 +93,12 @@ form {
   padding: 12px 24px;
 }
 
+.delivery_info {
+  background: lightgreen;
+  padding: 12px 24px;
+  margin-top: 12px;
+}
+
 .payment_info {
   background: #eeeeee;
   padding: 12px 24px;
@@ -94,4 +107,15 @@ form {
 
 .right {
   text-align: right;
+}
+
+textarea {
+  font-size: 12px;
+}
+
+.actions {
+  margin-top: 8px;
+  input {
+    font-size: 24px;
+  }
 }

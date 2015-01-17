@@ -2,7 +2,9 @@
 <% if @event.subtitle %>
 <h2><%= @event.subtitle %></h2>
 <% end %>
+<div style="max-width:600px">
 <%= raw @markdown.render(@event.description) %>
+</div>
 
 <table class="products">
 <tr>
@@ -36,6 +38,8 @@
 
 <script type="text/javascript">
 $(function(){
+  computeTotal();
+
   $('.quantity').blur(function(){
     computeTotal();
   })
